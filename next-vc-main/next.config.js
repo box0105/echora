@@ -30,6 +30,15 @@ const nextConfig = {
     ],
     unoptimized: true,
   },
+  // Preserve historical Rent image URLs without shipping duplicate files.
+  async rewrites() {
+    return [
+      {
+        source: '/images/Rent/pd-images/:path*',
+        destination: '/images/product/pd-images/:path*',
+      },
+    ]
+  },
   // output: 'export', // don't use with `next start` or api route
   // distDir: 'dist',
   // avoid cors with proxy
